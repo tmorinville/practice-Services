@@ -20,6 +20,7 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.accountsService.updateStatus(this.id, status);
+    this.accountsService.statusUpdated.emit("Go Bison!");
     // this.statusChanged.emit({ id: this.id, newStatus: status });
     // this.loggingService.logStatusChange(status);
     // console.log(`A status change occured, the new status is ${status}`);

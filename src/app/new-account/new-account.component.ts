@@ -11,8 +11,16 @@ import { AccountsService } from '../accounts.service';
 export class NewAccountComponent {
   // @Output() accountAdded = new EventEmitter<{ name: string; status: string }>();
 
+  para:string = "";
+
   constructor(private accountsService: AccountsService) {
     // this.loggingService = logSer;
+  }
+
+  ngOnInit(){
+    this.accountsService.statusUpdated.subscribe(
+      (data:string) => this.para = data
+    );
   }
 
   onCreateAccount(accountName: string, accountStatus: string) {
